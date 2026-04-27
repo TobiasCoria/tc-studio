@@ -18,28 +18,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
-  /* Typewriter Effect - Intro */
-.typing-text {
-  font-family: var(--fd);
-  font-size: clamp(4.5rem, 12vw, 11rem);
-  font-weight: 300;
-  line-height: 0.9;
-  letter-spacing: -0.01em;
-  overflow: hidden;
-  border-right: 0.15em solid var(--gold);
-  white-space: nowrap;
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-#typed-dot {
-  color: var(--gold);
-  animation: blink 0.7s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --bg: #080808; --s1: #0f0f0f; --s2: #161616; --s3: #1e1e1e;
@@ -557,25 +535,18 @@ footer { border-top: 1px solid var(--border); padding: 2.5rem 5vw; display: flex
 <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="hero-bg-word">CORIA</div>
-  <div class="hero-eyebrow">TC / STUDIO · Rosario, Argentina · UTN Ingeniería en Sistemas</div>
-  
+  <div class="hero-eyebrow">Full Stack Developer &nbsp;·&nbsp; Rosario, Argentina</div>
   <div class="hero-content">
-    <!-- Nombre con efecto tipeo -->
-    <h1 class="hero-name" id="heroName">
-      <span id="typed-name" class="typing-text"></span>
-      <span class="hn-dot" id="typed-dot">.</span>
+    <h1 class="hero-name" id="heroName"><div class="glitch-layer" aria-hidden="true">Tobías<br>Coria.</div>
+      <span class="hn-first">Tobías</span>
+      <span class="hn-last">Coria<span class="hn-dot">.</span></span>
     </h1>
-
     <div class="hero-bottom">
-      <p class="hero-tagline">
-        Full Stack Developer. Construyo aplicaciones web completas — del servidor a la pantalla del cliente. 
-        Trabajo solo, lo que significa que hablás directo conmigo en cada etapa.
-      </p>
+      <p class="hero-tagline">Full Stack Developer. Construyo aplicaciones web completas — del servidor a la pantalla del cliente. Trabajo solo, lo que significa que hablás directo conmigo en cada etapa.</p>
       <div class="hero-actions">
         <div class="hero-btns">
           <a href="#proyectos" class="btn-g">Ver mi trabajo</a>
-          <a href="https://wa.me/5492473476761?text=Hola%20Tobías%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20de%20un%20proyecto" 
-             target="_blank" class="btn-ghost">Hablemos</a>
+          <a href="https://wa.me/5492473476761?text=Hola%20Tobías%2C%20vi%20tu%20portfolio%20y%20me%20interesa%20hablar%20de%20un%20proyecto" target="_blank" class="btn-ghost">Hablemos</a>
         </div>
       </div>
     </div>
@@ -868,39 +839,6 @@ function tab(btn, panelId) {
   btn.classList.add('on');
   document.getElementById(panelId).classList.add('on');
 }
-// Typewriter para el nombre (intro después del scan)
-function typeWriter() {
-  const text = "Tobías Coria";
-  const element = document.getElementById('typed-name');
-  let i = 0;
-  const speed = 65; // velocidad del tipeo (ajustá si querés más rápido o lento)
-
-  element.textContent = '';
-
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    } else {
-      // Mostrar el punto dorado al terminar
-      document.getElementById('typed-dot').style.opacity = '1';
-      
-      // Pequeño glitch al final (opcional, combina con tu estilo)
-      setTimeout(() => {
-        const hero = document.getElementById('heroName');
-        hero.classList.add('glitch-active');
-        setTimeout(() => hero.classList.remove('glitch-active'), 650);
-      }, 300);
-    }
-  }
-  type();
-}
-
-// Iniciar después de que termine el loader + scan
-window.addEventListener('load', () => {
-  setTimeout(typeWriter, 2200); // espera a que pase el scan y loader
-});
 </script>
 </body>
 </html>
