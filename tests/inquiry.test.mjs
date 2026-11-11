@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {prepareInquiry} from '../src/inquiry.mjs';
+const valid={name:'QA Local',email:'qa@example.com',company:'Equipo',service:'Software',message:'Necesitamos definir el alcance de una aplicación.'};
+test('prepares encoded mailto for the approved business address',()=>{const d=prepareInquiry(valid);const u=new URL(d.href);assert.equal(u.pathname,'tobicoria09@gmail.com');assert.equal(u.searchParams.get('body'),d.body);assert.match(d.body,/QA Local/);});
+test('English inquiry contains English greeting and original message',()=>{const d=prepareInquiry(valid,'en');assert.match(d.body,/Hi Tobías/);assert.ok(d.body.includes(valid.message));});
+test('rejects incomplete email and whitespace-only message',()=>{assert.throws(()=>prepareInquiry({...valid,email:'bad'}));assert.throws(()=>prepareInquiry({...valid,message:' '.repeat(30)}));});
+test('rejects header injection and enforces field limits',()=>{assert.throws(()=>prepareInquiry({...valid,name:'Name\r\nBcc: attacker@example.com'}));assert.throws(()=>prepareInquiry({...valid,message:'a'.repeat(2501)}));});
+test('special characters stay in the body, not new mailto query parameters',()=>{const d=prepareInquiry({...valid,message:'<script>alert(1)</script> &bcc=other@example.com'});const u=new URL(d.href);assert.equal(u.searchParams.get('bcc'),null);assert.ok(u.searchParams.get('body').includes('<script>'));});
+test('optional timeline is included in the chosen language and safely encoded',()=>{const d=prepareInquiry({...valid,timeline:'Junio & julio'},'en');assert.match(d.body,/Expected timeline: Junio & julio/);assert.equal(new URL(d.href).searchParams.get('body'),d.body);assert.ok(!prepareInquiry(valid).body.includes('Plazo estimado:'));});
+test('timeline rejects line breaks and excessive length',()=>{assert.throws(()=>prepareInquiry({...valid,timeline:'mañana\nBcc: otro'}));assert.throws(()=>prepareInquiry({...valid,timeline:'a'.repeat(101)}));});

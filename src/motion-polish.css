@@ -1,0 +1,10 @@
+/* Consistent interaction rhythm; scroll motion remains driven by GSAP. */
+:root{--ease-soft:cubic-bezier(.25,.8,.25,1)}
+.chapter-index[open]{animation:none}
+.nav-highlight{transition:transform .45s var(--ease-soft),width .45s var(--ease-soft),opacity .3s ease}
+.cap-list summary b,.idea-list summary b{transition:transform .45s var(--ease-soft)}
+.walk-controls button,.need-controls button,.walk-description li>button{transition:color .3s ease,background-color .3s ease,border-color .3s ease}
+.form-field input,.form-field textarea,.form-field select{transition:border-color .3s ease,background-color .3s ease,box-shadow .3s ease}
+.gallery-modal button{transition-timing-function:var(--ease-soft)}
+@media(prefers-reduced-motion:reduce){.nav-highlight,.walk-controls button,.need-controls button,.form-field input,.form-field textarea,.form-field select{transition:none}}
+html[data-motion=off] .nav-highlight{transition:none}

@@ -1,0 +1,18 @@
+export const chapters=[
+ {id:'inicio',es:'Inicio',en:'Home',group:'studio'},
+ {id:'manifiesto',es:'La mirada',en:'Our approach',group:'studio'},
+ {id:'sistema',es:'De la idea al sistema',en:'From idea to system',group:'studio'},
+ {id:'proyectos',es:'Todos los proyectos',en:'Selected work',group:'work'},
+ {id:'izipark',es:'Izipark',en:'Izipark',group:'work'},
+ {id:'pediatria',es:'Portal Pediatría',en:'Pediatric portal',group:'work'},
+ {id:'facility',es:'Facility Management',en:'Facility Management',group:'work'},
+ {id:'tcgym',es:'TCGym',en:'TCGym',group:'work'},
+ {id:'experiencia',es:'ERP y lógica de negocio',en:'ERP and business logic',group:'work'},
+ {id:'enaccion',es:'Producto en acción',en:'Product walkthrough',group:'work'},
+ {id:'capacidades',es:'Servicios y capacidades',en:'Services and capabilities',group:'studio'},
+ {id:'estudio',es:'Sobre mí',en:'About me',group:'studio'},
+ {id:'colaboracion',es:'Formas de trabajar',en:'Ways to work together',group:'studio'},
+ {id:'proceso',es:'Cómo trabajamos',en:'Our process',group:'studio'},
+ {id:'ideas',es:'Qué podemos construir',en:'What we could build',group:'studio'},
+ {id:'contacto',es:'Contame tu idea',en:'Tell me your idea',group:'studio'},
+] as const;

@@ -1,0 +1,23 @@
+/* Forest light: layered dark material, soft silver light and champagne reflections. */
+:root{--ambient-base:#08120e;--ambient-raised:#0e1a14;background:var(--ambient-base)}
+body{background:var(--ambient-base)}body::after{opacity:.018}
+.hero,.hero-camera{background-color:#08120e;background-image:radial-gradient(ellipse at 72% 20%,#6c806d21,transparent 56%),radial-gradient(ellipse at 8% 76%,#8c795e12,transparent 48%),linear-gradient(122deg,#06100c 5%,#17281c 46%,#0b1711 72%,#060e0a 100%)}
+.hero-grain{opacity:.012}.hero-signature{opacity:.025}.camera-rings{display:none!important}
+.opening,.capabilities,.more-work,.work-intro,.case-hero,.case-content,.product-gallery{background-color:#0a1510;background-image:radial-gradient(ellipse at 92% 4%,#71877526,transparent 57%),radial-gradient(ellipse at 2% 100%,#baa78210,transparent 52%),linear-gradient(120deg,#0a1510,#15251b 48%,#08120e);background-size:auto;background-position:center}
+.studio,.engagement,.process,.architecture{background-color:#0d1912;background-image:radial-gradient(ellipse at 12% 24%,#8c9b8a13,transparent 58%),radial-gradient(ellipse at 90% 95%,#aa946f0c,transparent 60%),linear-gradient(135deg,#0b1711,#142219 55%,#0b1610);background-size:auto;background-position:center}
+.contact,.ideas,.footer{background-color:#07100c;background-image:radial-gradient(ellipse at 85% 0%,#ac927010,transparent 55%),radial-gradient(ellipse at 8% 75%,#4b6f5417,transparent 60%),linear-gradient(115deg,#0b1710,#07110c 70%);background-size:auto;background-position:center}
+.footer{background-image:linear-gradient(#09130e,#060d09)}
+.section-depth{width:150%;height:135%;top:-15%;right:-35%;left:auto;border:0;border-radius:0;background:linear-gradient(115deg,transparent 28%,#d4d7c90a 35%,#b9c6ad14 40%,#c8b18a12 43%,transparent 51%);mask-image:radial-gradient(ellipse,#000 0,transparent 73%);pointer-events:none}
+.section-depth::before,.section-depth::after,.section-depth>i{display:none}
+.studio .section-depth,.contact .section-depth{left:-35%;right:auto;top:-10%}.engagement .section-depth{top:0;right:-35%}.process .section-depth{width:150%;height:135%;top:-15%}
+.bridge-stage{background-color:#08130e;background-image:radial-gradient(ellipse at 70% 45%,#5e7d5d22,transparent 60%),linear-gradient(118deg,#07100b,#16261a 52%,#09150e)}
+.bridge-grid{inset:-25%;background-image:linear-gradient(118deg,transparent 30%,#c8b18a0d 42%,#cbd4c908 46%,transparent 55%);background-size:auto;mask-image:radial-gradient(ellipse,#000,transparent 72%)}
+.scene-izipark{background:#0a1911}.scene-pediatric{background:#111d16}.scene-facility{background:#09150f}.scene-gym{background:#121e15}
+.scene-sticky{background-image:radial-gradient(ellipse at 78% 38%,#748c6b19,transparent 64%),linear-gradient(120deg,transparent 28%,#c3b18a05 48%,transparent 66%)}
+.product-walkthrough{background-color:#0b1711;background-image:radial-gradient(ellipse at 20% 90%,#4f715124,transparent 55%),radial-gradient(ellipse at 90% 10%,#b4a17d0d,transparent 55%),linear-gradient(120deg,#08120d,#122118 60%,#09150f)}
+.site-nav{background:linear-gradient(#07120ef5,#0a1610c9);border-bottom-color:#c3c8cb20}.site-nav.is-scrolled{background:#08130eeb}
+.solution-lab{background:linear-gradient(125deg,#22372966,#0a1711bb);box-shadow:inset 0 1px #e2e8dc05,0 18px 65px #00000012}
+#contact-form{background:linear-gradient(135deg,#213628a8,#0b1911ed 70%);box-shadow:0 24px 70px #0003,inset 0 1px #e2e8dc0b}
+.engagement-grid article{background:linear-gradient(140deg,#31433024,#0b1913aa);box-shadow:inset 0 1px #e2e8dc06}
+.intro.active{background:radial-gradient(ellipse at 65% 45%,#273a282e,transparent 65%),#08120e}
+@media(max-width:760px){.opening,.capabilities,.studio,.process,.contact,.architecture,.more-work,.work-intro,.engagement,.ideas{background-size:auto}.section-depth,.process .section-depth{width:160%;height:115%;right:-40%;top:-5%}.studio .section-depth,.contact .section-depth{left:-40%;right:auto;top:0}}
