@@ -7,6 +7,8 @@ import './navigation.css';
 import './gallery.css';
 import './motion-polish.css';
 import './contact-refined.css';
+import './service-picker.css';
+import {mountServicePicker} from './service-picker';
 import {openPanel,closePanel} from './panels';
 import {prepareInquiry} from './inquiry.mjs';
 import {mountGallery} from './gallery';
@@ -129,6 +131,7 @@ document.querySelectorAll<HTMLAnchorElement>('[data-idea-service]').forEach(link
  const message=form.querySelector<HTMLTextAreaElement>('#message')!;
  const context=form.querySelector<HTMLElement>('#idea-context')!;
  service.value=link.dataset.ideaService!;
+ service.dispatchEvent(new Event('change',{bubbles:true}));
  const existing=!!message.value.trim();
  if(!existing)message.value=language==='es'?`Me interesa conversar sobre: ${title}.\n\nMi contexto y lo que necesito resolver: `:`I'd like to discuss: ${title}.\n\nMy context and what I need to solve: `;
  invalidateDraft();context.hidden=false;
@@ -136,3 +139,4 @@ document.querySelectorAll<HTMLAnchorElement>('[data-idea-service]').forEach(link
 }));
 
 mountExperience(()=>language);
+mountServicePicker(()=>language);

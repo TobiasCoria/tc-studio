@@ -30,6 +30,7 @@ Sitio estático multipágina con Vite y TypeScript. Componentes HTML compartidos
 - `src/experience.ts`: recorrido de TCGym y selector de necesidades.
 - `src/inquiry.mjs`: validación y borrador de consulta bilingüe.
 - `src/contact-refined.css`: campos de contacto y estados de foco.
+- `src/service-picker.ts` y `src/service-picker.css`: selector de servicios con lista personalizada, teclado y traducciones. Conserva el select original como respaldo y fuente de datos del formulario.
 - `public/media`, `public/fonts`: capturas y fuentes locales.
 
 Movimiento reducido del sistema y botón de pausa disponibles. Al recargar se vuelve al inicio; los enlaces internos permiten navegar durante la visita.

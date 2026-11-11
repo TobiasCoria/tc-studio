@@ -50,3 +50,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Galería: mantener fundido y deslizamiento direccional, imagen decodificada antes del cambio, miniaturas, teclado, Escape y movimiento reducido. Usar Web Animations nativo; no sumar dependencias para estas transiciones.
 
 - Ritmo de movimiento: curvas suaves coherentes, amplitud de cámara moderada, paneles con fundido/desplazamiento corto y salida animada. Evitar recortes bruscos y no aumentar tiempos indiscriminadamente. Medir rendimiento antes de afirmar fluidez o puntuaciones.
+
+- Selector de servicio: conservar el desplegable personalizado verde/champagne, sus cinco opciones, descripciones bilingües, navegación por teclado y sincronización con las ideas y el borrador. El select nativo queda como respaldo sin JavaScript.
