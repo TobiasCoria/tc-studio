@@ -25,14 +25,37 @@ export function mountPremium(){
  const menu=document.querySelector<HTMLElement>('.chapter-index');
  if(menu){
   const preview=document.createElement('aside');preview.className='index-preview';preview.setAttribute('aria-hidden','true');
-  const image=document.createElement('img');image.alt='';image.hidden=true;const copy=document.createElement('span');preview.append(image,copy);menu.querySelector('.index-columns')?.before(preview);
+  const visual=document.createElement('div');visual.className='index-preview-visual';
+  const signature=document.createElement('span');signature.className='index-signature';signature.textContent='/';
+  const image=document.createElement('img');image.alt='';image.hidden=true;image.decoding='async';visual.append(signature,image);
+  const kicker=document.createElement('small');kicker.className='index-preview-kicker';
+  const copy=document.createElement('strong');copy.className='index-preview-title';
+  const detail=document.createElement('p');detail.className='index-preview-detail';
+  preview.append(visual,kicker,copy,detail);menu.querySelector('.index-columns')?.before(preview);
   const assets:Record<string,string>={izipark:'/media/izipark-mobile.png',pediatria:'/media/pediatric-dashboard.png',facility:'/media/facility-public.png',tcgym:'/media/tcgym-admin-metrics.png',enaccion:'/media/tcgym-turnos.jpg'};
-  let selected:HTMLAnchorElement|undefined;
-  const show=(link:HTMLAnchorElement)=>{selected=link;const key=link.dataset.section||'';const src=assets[key];image.hidden=!src;if(src)image.src=src;copy.textContent=link.textContent?.replace('↗','').trim()||'TC/STUDIO';};
+  const descriptions:Record<string,[string,string]>={
+   izipark:['Producto móvil de estacionamiento. Actualmente en desarrollo.','A mobile parking product. Currently in development.'],
+   pediatria:['Una mirada al portal, la agenda y el espacio de trabajo del consultorio.','Explore the portal, calendar and practice workspace.'],
+   facility:['Desarrollo sobre Odoo para operaciones de negocio.','Odoo development for business operations.'],
+   tcgym:['Del acceso del socio a la administración del gimnasio.','From member access to gym administration.'],
+   contacto:['Empecemos por el desafío de tu próximo proyecto.','Let’s start with the challenge behind your next project.'],
+   capacidades:['Software, Odoo y colaboración con equipos.','Software, Odoo and collaboration with teams.'],
+   proceso:['Del primer mensaje a una entrega validada.','From the first conversation to a validated delivery.']
+  };
+  let selected:HTMLAnchorElement|undefined,transition:Animation|undefined;
+  const render=(link?:HTMLAnchorElement)=>{
+   const en=root.lang==='en',key=link?.dataset.section||'';const src=assets[key];
+   image.hidden=!src;signature.hidden=!!src;if(src&&image.getAttribute('src')!==src)image.src=src;
+   kicker.textContent=link?`${link.querySelector('.index-number')?.textContent||''} / ${en?'EXPLORE THE STUDIO':'EXPLORÁ EL ESTUDIO'}`:'TC/STUDIO / INDEX';
+   copy.textContent=link?.textContent?.replace('↗','').replace(/^\s*\d+\s*/,'').trim()||(en?'Every detail. Connected.':'Cada detalle. Conectado.');
+   detail.textContent=descriptions[key]?.[en?1:0]||(en?'Explore the work, approach and ways to build together.':'Explorá los proyectos, la mirada y las formas de construir juntos.');
+   transition?.cancel();if(enabled())transition=preview.animate([{opacity:.55,translate:'0 5px'},{opacity:1,translate:'0 0'}],{duration:380,easing:'cubic-bezier(.22,1,.36,1)'});
+  };
+  const show=(link:HTMLAnchorElement)=>{selected=link;menu.querySelectorAll('a[data-preview]').forEach(a=>a.removeAttribute('data-preview'));link.setAttribute('data-preview','true');render(link);};
   menu.querySelectorAll<HTMLAnchorElement>('a[data-section]').forEach(link=>{link.addEventListener('pointerenter',()=>show(link));link.addEventListener('focus',()=>show(link));});
-  const reset=()=>{selected=undefined;image.hidden=true;copy.textContent=root.lang==='en'?'Choose a chapter to explore':'Elegí un capítulo para explorar';};
+  const reset=()=>{selected=undefined;menu.querySelectorAll('a[data-preview]').forEach(a=>a.removeAttribute('data-preview'));render();};
   menu.addEventListener('toggle',()=>{if((menu as HTMLDialogElement).open)reset();});
-  document.addEventListener('tc-language-change',()=>selected?show(selected):reset());reset();
+  document.addEventListener('tc-language-change',()=>render(selected));reset();
  }
  const form=document.querySelector<HTMLFormElement>('#contact-form');
  form?.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('input,textarea').forEach(input=>{

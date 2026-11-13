@@ -73,3 +73,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Reflejo de carga: base plateada constante y franja separada recortada al texto, una pasada lineal; sin pulsos de opacidad, filtros de halo ni variaciones de brillo del logo completo.
 
 - Contacto de una pantalla en escritorio: finale antes del ancla, padding que compensa la barra y datos secundarios desplegables. Nunca fijar el ancho del span de texto del botón. Reflejo de intro: pasada visible de 1,6s terminada antes de viajar.
+
+- Hablemos: acción champagne con flecha independiente y recorrido de luz solo en hover/foco. Índice editorial con vista previa real, dos listas completas, selección por hover/foco y adaptación móvil; mantener Escape y foco contenido por dialog nativo.
