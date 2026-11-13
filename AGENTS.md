@@ -69,3 +69,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Marca de carga: pasada plateada/champagne y entrada de profundidad acotadas a 1,05 s; terminar en transform neutro antes de medir el viaje compartido. Respetar movimiento reducido.
 
 - Barra y cierre: marco único flotante con enlaces numerados, acceso a contacto e índice completo; no añadir cápsulas por enlace. Contacto compacto con título menor y datos secundarios agrupados. Mantener campos móviles de 16px, etiquetas visibles y blancos de interacción cómodos.
+
+- Reflejo de carga: base plateada constante y franja separada recortada al texto, una pasada lineal; sin pulsos de opacidad, filtros de halo ni variaciones de brillo del logo completo.

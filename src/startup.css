@@ -12,7 +12,7 @@ body[data-page=home]>.intro>em{position:absolute;left:36px;bottom:32px;font-size
 .intro-skip{position:absolute;right:36px;bottom:26px;min-height:44px;padding:12px 0;border:0;border-bottom:1px solid #c3c8cb40;background:transparent;color:#bac4be;font:10px monospace;letter-spacing:.07em;cursor:pointer}.intro-skip:focus-visible{outline:2px solid #c8b18a;outline-offset:5px}
 .intro-corners{position:absolute;inset:32px;pointer-events:none}.intro-corners i{position:absolute;width:24px;height:24px;border-color:#c3c8cb35;border-style:solid;border-width:0}.intro-corners i:nth-child(1){left:0;top:0;border-top-width:1px;border-left-width:1px}.intro-corners i:nth-child(2){right:0;top:0;border-top-width:1px;border-right-width:1px}.intro-corners i:nth-child(3){left:0;bottom:0;border-bottom-width:1px;border-left-width:1px}.intro-corners i:nth-child(4){right:0;bottom:0;border-bottom-width:1px;border-right-width:1px}
 .intro-brand-flight::after{content:none!important}
-@keyframes loader-metal{from{background-position:100% 0}to{background-position:0 0}}
+
 @keyframes loader-atmosphere{to{transform:scale(1.1) translateY(-2%);opacity:.55}}
 body[data-page=home]>.intro:not(.active){animation:startup-rescue 0s 8s forwards}@keyframes startup-rescue{to{visibility:hidden;pointer-events:none;opacity:0}}
 @media(max-width:760px){body[data-page=home]>.intro>.intro-mark{top:calc(50% - 65px);font-size:18vw}body[data-page=home]>.intro>small{top:calc(50% + 32px);font-size:9px;letter-spacing:.1em}body[data-page=home]>.intro .intro-loading{top:calc(50% + 100px)}.intro-corners{inset:22px}body[data-page=home]>.intro>em{left:22px;bottom:30px;font-size:8px}.intro-skip{right:22px}}
@@ -20,14 +20,21 @@ body[data-page=home]>.intro:not(.active){animation:startup-rescue 0s 8s forwards
 
 body[data-page=home]>.intro .intro-corners i{width:18px;height:18px;margin:0;display:block;background:none}body[data-page=home]>.intro .intro-corners{bottom:80px}
 
-/* A complete light pass happens before the shared-logo journey begins. */
+/* Stable silver underneath; only the narrow reflection travels over the glyphs. */
 body[data-page=home]>.intro>.intro-mark{
- background-image:linear-gradient(110deg,#87988f 0%,#c6d0c8 35%,#f3eee1 43%,#fffdf6 47%,#d7bb8b 51%,#f1e8d7 55%,#b8c6bd 65%,#87988f 100%);
- background-size:250% 100%;
- animation:loader-silver-sweep 1.05s cubic-bezier(.3,0,.2,1) both,loader-brand-arrival 1.05s cubic-bezier(.22,1,.36,1) both;
- transform-origin:50% 50%;
+ background-image:linear-gradient(175deg,#eef0ea 8%,#b5bdb8 42%,#e8ebe4 56%,#aab4af 88%);
+ background-size:100% 100%;background-position:0 0;
+ animation:loader-brand-arrival .9s cubic-bezier(.22,1,.36,1) both;
+ transform-origin:50% 50%;filter:none;opacity:1;
 }
-@keyframes loader-silver-sweep{0%{background-position:100% 50%;filter:drop-shadow(0 0 0 #c8b18a00)}45%{filter:drop-shadow(0 0 14px #c8b18a45)}100%{background-position:0% 50%;filter:drop-shadow(0 0 4px #c8b18a14)}}
-@keyframes loader-brand-arrival{0%{opacity:0;transform:perspective(1000px) translateY(12px) rotateX(9deg) scale(.975)}35%{opacity:1}100%{opacity:1;transform:perspective(1000px) translateY(0) rotateX(0) scale(1)}}
-@media(prefers-reduced-motion:reduce){body[data-page=home]>.intro>.intro-mark{animation:none;transform:none;filter:none}}
-html[data-motion=off] body[data-page=home]>.intro>.intro-mark{animation:none;transform:none;filter:none}
+body[data-page=home]>.intro>.intro-mark::after{
+ content:'TC/STUDIO';position:absolute;inset:0;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;pointer-events:none;
+ background:linear-gradient(108deg,transparent 42%,#e9d8b54d 46%,#fff8e7b3 50%,#e9d8b54d 54%,transparent 58%);
+ background-size:250% 100%;background-position:100% 50%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+ animation:loader-reflection-travel 1.05s linear both;
+}
+@keyframes loader-reflection-travel{from{background-position:100% 50%}to{background-position:0% 50%}}
+@keyframes loader-brand-arrival{from{transform:perspective(1000px) translateY(6px) rotateX(4deg)}to{transform:perspective(1000px) translateY(0) rotateX(0)}}
+@media(prefers-reduced-motion:reduce){body[data-page=home]>.intro>.intro-mark{animation:none;transform:none}body[data-page=home]>.intro>.intro-mark::after{animation:none;display:none}}
+html[data-motion=off] body[data-page=home]>.intro>.intro-mark{animation:none;transform:none}
+html[data-motion=off] body[data-page=home]>.intro>.intro-mark::after{animation:none;display:none}
