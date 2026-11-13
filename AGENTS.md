@@ -65,3 +65,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Intro conectada restaurada: copia decorativa con estilos calculados de todo el título, incluida barra; esperar fuentes locales, mantener posición final idéntica y hacer el relevo en un solo frame. No usar texto plano con tipografía aproximada.
 
 - Apertura cinematográfica: shell de carga tipográfico con progreso de recursos real, espera acotada, botón Saltar intro; transición de velo y logo compartido seguida por navegación/textos/capturas escalonadas. No dejar contenido oculto si falla una mejora. Luz adicional en índice, CV, marcos de proyectos y opciones de colaboración; no todos los elementos.
+
+- Marca de carga: pasada plateada/champagne y entrada de profundidad acotadas a 1,05 s; terminar en transform neutro antes de medir el viaje compartido. Respetar movimiento reducido.

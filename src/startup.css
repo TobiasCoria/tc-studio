@@ -19,3 +19,15 @@ body[data-page=home]>.intro:not(.active){animation:startup-rescue 0s 8s forwards
 @media(prefers-reduced-motion:reduce){body[data-page=home]>.intro .intro-aura,body[data-page=home]>.intro>.intro-mark{animation:none}body[data-page=home]>.intro .intro-line i{transition:none}}
 
 body[data-page=home]>.intro .intro-corners i{width:18px;height:18px;margin:0;display:block;background:none}body[data-page=home]>.intro .intro-corners{bottom:80px}
+
+/* A complete light pass happens before the shared-logo journey begins. */
+body[data-page=home]>.intro>.intro-mark{
+ background-image:linear-gradient(110deg,#87988f 0%,#c6d0c8 35%,#f3eee1 43%,#fffdf6 47%,#d7bb8b 51%,#f1e8d7 55%,#b8c6bd 65%,#87988f 100%);
+ background-size:250% 100%;
+ animation:loader-silver-sweep 1.05s cubic-bezier(.3,0,.2,1) both,loader-brand-arrival 1.05s cubic-bezier(.22,1,.36,1) both;
+ transform-origin:50% 50%;
+}
+@keyframes loader-silver-sweep{0%{background-position:100% 50%;filter:drop-shadow(0 0 0 #c8b18a00)}45%{filter:drop-shadow(0 0 14px #c8b18a45)}100%{background-position:0% 50%;filter:drop-shadow(0 0 4px #c8b18a14)}}
+@keyframes loader-brand-arrival{0%{opacity:0;transform:perspective(1000px) translateY(12px) rotateX(9deg) scale(.975)}35%{opacity:1}100%{opacity:1;transform:perspective(1000px) translateY(0) rotateX(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){body[data-page=home]>.intro>.intro-mark{animation:none;transform:none;filter:none}}
+html[data-motion=off] body[data-page=home]>.intro>.intro-mark{animation:none;transform:none;filter:none}
