@@ -8,6 +8,14 @@ import './gallery.css';
 import './motion-polish.css';
 import './contact-refined.css';
 import './service-picker.css';
+import './premium.css';
+import './quality.css';
+import './contact-route.css';
+import './light-orbit.css';
+import {mountLightOrbits} from './light-orbit';
+import {mountContactRoute} from './contact-route';
+import {mountCommercial} from './commercial';
+import {mountPremium} from './premium';
 import {mountServicePicker} from './service-picker';
 import {openPanel,closePanel} from './panels';
 import {prepareInquiry} from './inquiry.mjs';
@@ -28,6 +36,8 @@ startAtTop();
 if(!navigationIntent)window.addEventListener('load',()=>requestAnimationFrame(startAtTop),{once:true});
 type Language='es'|'en';
 let language:Language='es';
+const caseNames:Record<string,string>={tcgym:'TCGym',pediatria:'Portal Pediatría',facility:'Facility Management'};
+mountContactRoute();
 const translated=[...document.querySelectorAll<HTMLElement>('[data-en]')].map(el=>({el,es:el.innerHTML,en:el.dataset.en!}));
 const languageButton=document.querySelector<HTMLButtonElement>('.language')!;
 const form=document.querySelector<HTMLFormElement>('#contact-form')!;
@@ -59,8 +69,8 @@ function translate(next:Language){language=next;document.documentElement.lang=la
   invalidateDraft();const ideaContext=form.querySelector<HTMLElement>('#idea-context');if(ideaContext)ideaContext.hidden=true;updateMotionButton();document.dispatchEvent(new Event('tc-language-change'));
   const query=new URLSearchParams(location.search);if(language==='en')query.set('lang','en');else query.delete('lang');
   history.replaceState(null,'',`${location.pathname}${query.size?'?'+query.toString():''}${location.hash}`);
-  document.title=document.body.dataset.page==='home'?(language==='es'?'TC/STUDIO — Ideas reales. Sistemas vivos.':'TC/STUDIO — Real ideas. Living systems.'):(language==='es'?'TCGym — Caso de desarrollo / TC STUDIO':'TCGym — Development case study / TC STUDIO');
-  document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(link=>{if(link.origin===location.origin&&(link.pathname==='/'||link.pathname==='/proyectos/tcgym/')){const url=new URL(link.href);if(language==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');link.href=url.pathname+url.search+url.hash;}});
+  document.title=document.body.dataset.page==='home'?(language==='es'?'TC/STUDIO — Ideas reales. Sistemas vivos.':'TC/STUDIO — Real ideas. Living systems.'):`${caseNames[document.body.dataset.page||'']||'TC/STUDIO'} — ${language==='es'?'Caso de desarrollo':'Development case study'} / TC STUDIO`;
+  document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach(link=>{if(link.origin===location.origin&&(link.pathname==='/'||link.pathname.startsWith('/proyectos/'))){const url=new URL(link.href);if(language==='en')url.searchParams.set('lang','en');else url.searchParams.delete('lang');link.href=url.pathname+url.search+url.hash;}});
 }
 languageButton.addEventListener('click',()=>translate(language==='es'?'en':'es'));
 form.addEventListener('input',invalidateDraft);form.addEventListener('change',invalidateDraft);
@@ -140,3 +150,9 @@ document.querySelectorAll<HTMLAnchorElement>('[data-idea-service]').forEach(link
 
 mountExperience(()=>language);
 mountServicePicker(()=>language);
+
+mountPremium();
+
+mountCommercial();
+
+mountLightOrbits();

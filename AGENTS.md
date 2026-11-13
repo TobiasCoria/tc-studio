@@ -52,3 +52,16 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Ritmo de movimiento: curvas suaves coherentes, amplitud de cámara moderada, paneles con fundido/desplazamiento corto y salida animada. Evitar recortes bruscos y no aumentar tiempos indiscriminadamente. Medir rendimiento antes de afirmar fluidez o puntuaciones.
 
 - Selector de servicio: conservar el desplegable personalizado verde/champagne, sus cinco opciones, descripciones bilingües, navegación por teclado y sincronización con las ideas y el borrador. El select nativo queda como respaldo sin JavaScript.
+
+- Acabado premium vigente: reflejo plateado/champagne recortado al logo, intro compartiendo geometría con el título, luz ambiental ligera, índice con vista previa, galerías direccionales y campos con feedback local. Respetar pausa, movimiento reducido y no interferir con los transforms de GSAP; cada transformación tiene un solo propietario.
+
+- Cierre comercial: preguntas frecuentes bilingües antes del contacto; borrador con copiar y WhatsApp sin enviar desde el sitio. Casos Pediatría y Facility con alcance acreditado. Medición solo mediante eventos locales sin proveedor hasta nueva autorización; jamás incluir texto del formulario, email o URL de WhatsApp en eventos. Portada móvil prioriza propuesta y descripción antes de las capturas.
+
+- Inicio: cargar startup.css como hoja bloqueante antes de los módulos para evitar flashes sin estilo. La pieza de transición del logo es decorativa y solo contiene TC/STUDIO, sin clonar el H1 accesible. Cierre: la secuencia dentro de contacto culmina en Hagamos que pase, sin bloquear el formulario. Conservar CTA existentes y añadir atajos solo en secciones sin enlace a contacto.
+
+- Luz perimetral: SVG decorativo en atajos Contactanos, formulario y marcos de Pediatría/TCGym. Trazos plateados/champagne lentos, sin capturar eventos; pausar fuera de pantalla, ocultar con pausa/movimiento reducido y simplificar en móvil. No añadir al stage de galería que reemplaza sus hijos.
+
+
+- Intro conectada restaurada: copia decorativa con estilos calculados de todo el título, incluida barra; esperar fuentes locales, mantener posición final idéntica y hacer el relevo en un solo frame. No usar texto plano con tipografía aproximada.
+
+- Apertura cinematográfica: shell de carga tipográfico con progreso de recursos real, espera acotada, botón Saltar intro; transición de velo y logo compartido seguida por navegación/textos/capturas escalonadas. No dejar contenido oculto si falla una mejora. Luz adicional en índice, CV, marcos de proyectos y opciones de colaboración; no todos los elementos.

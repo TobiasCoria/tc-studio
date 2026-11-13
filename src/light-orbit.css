@@ -1,0 +1,9 @@
+.light-host{position:relative}.light-orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:5;pointer-events:none;border-radius:inherit;opacity:.62;transition:opacity .4s}
+.orbit-run{stroke-dasharray:10 90;stroke-linecap:round;animation:perimeter-light 9s linear infinite;animation-delay:var(--orbit-delay,0s);animation-play-state:paused;vector-effect:non-scaling-stroke}.orbit-ray{stroke-width:1.1}.orbit-halo{stroke-width:4;filter:blur(2px);opacity:.24}
+.light-host[data-orbit-visible=true]>.light-orbit .orbit-run{animation-play-state:running}.light-host:hover>.light-orbit,.light-host:focus-within>.light-orbit{opacity:1}.light-featured>.light-orbit .orbit-run{animation-duration:12s;stroke-dasharray:7 93}.scene-art .light-orbit{opacity:.4}
+@keyframes perimeter-light{0%{stroke-dashoffset:100;opacity:0}8%{opacity:1}72%{opacity:1}88%,100%{stroke-dashoffset:0;opacity:0}}
+html[data-motion=off] .light-orbit{display:none}@media(prefers-reduced-motion:reduce){.light-orbit{display:none}}
+@media(max-width:899px){.scene-art .light-orbit{display:none}.light-orbit{opacity:.45}.orbit-run{animation-duration:13s}.orbit-halo{display:none}}
+
+
+.engagement-grid article>.light-orbit{opacity:.3}.engagement-grid article:hover>.light-orbit{opacity:.8}.engagement-grid article>.light-orbit .orbit-run{animation-duration:16s;stroke-dasharray:5 95}.menu-toggle>.light-orbit{opacity:.45}.menu-toggle>.light-orbit .orbit-run{animation-duration:14s}

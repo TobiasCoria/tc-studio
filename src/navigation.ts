@@ -12,7 +12,7 @@ export function mountNavigation(){
  let frame=0;
  const update=()=>{
   frame=0;header.classList.toggle('is-scrolled',scrollY>24);
-  let current=isHome?'inicio':'tcgym';
+  let current=isHome?'inicio':(document.body.dataset.page||'tcgym');
   if(isHome)for(const section of sections)if(section.getBoundingClientRect().top<=160)current=section.id;
   const chapter=chapters.find(ch=>ch.id===current)!;const en=document.documentElement.lang==='en';
   header.querySelector('.nav-location-name')!.textContent=`${String(chapters.indexOf(chapter)+1).padStart(2,'0')} / ${en?chapter.en:chapter.es}`;

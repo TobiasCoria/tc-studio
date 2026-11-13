@@ -1,0 +1,21 @@
+/* This shell is loaded before the application graph: no unstyled brand flash. */
+@font-face{font-family:StartupDisplay;src:url('/fonts/display.woff2') format('woff2');font-weight:100 900;font-display:block}
+html{background:#08120e;color:#edece5}body{margin:0}
+body[data-page=home]>.intro{position:fixed;inset:0;z-index:10000;display:block;background:#08120e;color:#edece5;overflow:hidden;isolation:isolate;font-family:monospace;pointer-events:auto}
+body[data-page=home]>.intro .intro-aura{position:absolute;inset:-30%;background:radial-gradient(ellipse at 50% 50%,#31423870,transparent 48%);animation:loader-atmosphere 6s ease-in-out infinite alternate;pointer-events:none}
+body[data-page=home]>.intro>.intro-mark{position:absolute;left:0;top:calc(50% - 100px);width:100%;text-align:center;font-family:StartupDisplay,Impact,sans-serif;font-size:clamp(64px,12vw,180px);font-weight:700;line-height:1;letter-spacing:-.025em;color:#d4dad5;background:linear-gradient(110deg,#a4b0aa 15%,#e1e5dd 37%,#fffaf0 44%,#c8b18a 48%,#e1e5dd 53%,#aebbb4 70%);background-size:250% 100%;background-position:100% 0;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:loader-metal 2.8s ease-in-out infinite;filter:none}
+body[data-page=home]>.intro>small{position:absolute;top:calc(50% + 85px);left:24px;right:24px;text-align:center;padding:0;font-size:10px;letter-spacing:.2em;color:#aebbb4;animation:none;line-height:1.8}
+body[data-page=home]>.intro .intro-loading{position:absolute;left:50%;top:calc(50% + 145px);width:min(280px,65vw);transform:translateX(-50%);display:grid;grid-template-columns:1fr auto;gap:18px;font-size:10px;letter-spacing:.07em;color:#b9c3bd}
+body[data-page=home]>.intro .intro-line{position:relative;grid-column:1/-1;width:100%;height:1px;margin:0;background:#c3c8cb25;overflow:visible}
+body[data-page=home]>.intro .intro-line i{display:block;width:100%;height:1px;margin:0;background:linear-gradient(90deg,#84918c,#e5ded0,#c8b18a);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1);animation:none;box-shadow:0 0 10px #c8b18a38}
+body[data-page=home]>.intro>em{position:absolute;left:36px;bottom:32px;font-size:9px;letter-spacing:.16em;font-style:normal;color:#7f9388}
+.intro-skip{position:absolute;right:36px;bottom:26px;min-height:44px;padding:12px 0;border:0;border-bottom:1px solid #c3c8cb40;background:transparent;color:#bac4be;font:10px monospace;letter-spacing:.07em;cursor:pointer}.intro-skip:focus-visible{outline:2px solid #c8b18a;outline-offset:5px}
+.intro-corners{position:absolute;inset:32px;pointer-events:none}.intro-corners i{position:absolute;width:24px;height:24px;border-color:#c3c8cb35;border-style:solid;border-width:0}.intro-corners i:nth-child(1){left:0;top:0;border-top-width:1px;border-left-width:1px}.intro-corners i:nth-child(2){right:0;top:0;border-top-width:1px;border-right-width:1px}.intro-corners i:nth-child(3){left:0;bottom:0;border-bottom-width:1px;border-left-width:1px}.intro-corners i:nth-child(4){right:0;bottom:0;border-bottom-width:1px;border-right-width:1px}
+.intro-brand-flight::after{content:none!important}
+@keyframes loader-metal{from{background-position:100% 0}to{background-position:0 0}}
+@keyframes loader-atmosphere{to{transform:scale(1.1) translateY(-2%);opacity:.55}}
+body[data-page=home]>.intro:not(.active){animation:startup-rescue 0s 8s forwards}@keyframes startup-rescue{to{visibility:hidden;pointer-events:none;opacity:0}}
+@media(max-width:760px){body[data-page=home]>.intro>.intro-mark{top:calc(50% - 65px);font-size:18vw}body[data-page=home]>.intro>small{top:calc(50% + 32px);font-size:9px;letter-spacing:.1em}body[data-page=home]>.intro .intro-loading{top:calc(50% + 100px)}.intro-corners{inset:22px}body[data-page=home]>.intro>em{left:22px;bottom:30px;font-size:8px}.intro-skip{right:22px}}
+@media(prefers-reduced-motion:reduce){body[data-page=home]>.intro .intro-aura,body[data-page=home]>.intro>.intro-mark{animation:none}body[data-page=home]>.intro .intro-line i{transition:none}}
+
+body[data-page=home]>.intro .intro-corners i{width:18px;height:18px;margin:0;display:block;background:none}body[data-page=home]>.intro .intro-corners{bottom:80px}

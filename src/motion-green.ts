@@ -34,7 +34,7 @@ export function mountMotion(){
     gsap.set('.hero-stage',{scale:.82});
     // The opening is stable; only actual scroll drives the product camera.
     // Camera move: approach the product, pull back to reveal the wider system.
-    const scene=gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:()=>'+='+Math.round(innerHeight*1.65),pin:true,anticipatePin:1,scrub:1,invalidateOnRefresh:true},defaults:{ease:'none'}});
+    const scene=gsap.timeline({scrollTrigger:{trigger:hero,start:'top top',end:()=>'+='+Math.round(innerHeight*1.15),pin:true,anticipatePin:1,scrub:1,invalidateOnRefresh:true},defaults:{ease:'none'}});
     scene.to('.hero-signature',{scale:1.5,rotation:8,duration:1},0)
      .to('.hero-wordmark',{scale:1.9,z:250,yPercent:-60,opacity:0,duration:.33},0)
      .to('.hero-bottom,.hero-footer,.camera-scroll',{y:-35,opacity:0,duration:.16},0)
@@ -60,7 +60,7 @@ export function mountMotion(){
   const bridge=document.querySelector('.sequence-bridge');
   if(bridge){
    if(cinematic){
-    const story=gsap.timeline({scrollTrigger:{trigger:bridge,start:'top top',end:()=>'+='+Math.round(innerHeight*1.15),pin:true,scrub:.95,anticipatePin:1,invalidateOnRefresh:true},defaults:{ease:'none'}});
+    const story=gsap.timeline({scrollTrigger:{trigger:bridge,start:'top top',end:()=>'+='+Math.round(innerHeight*.85),pin:true,scrub:.95,anticipatePin:1,invalidateOnRefresh:true},defaults:{ease:'none'}});
     story.fromTo('.bridge-title',{scale:1.9,xPercent:18,z:260},{scale:.7,xPercent:-25,z:-250,duration:.65},0)
      .fromTo('.system-stack',{scale:.45,z:-700,rotationY:-25,rotationX:55,opacity:.2},{scale:1,z:0,rotationY:-12,rotationX:30,opacity:1,duration:.7},0)
      .fromTo('.layer-interface',{z:0,y:0},{z:190,y:-65,duration:.55},.25)
@@ -124,8 +124,17 @@ export function mountMotion(){
    gsap.fromTo('.demo-frame',{rotationY:-8*travel,y:35*travel},{rotationY:0,y:0,ease:'none',scrollTrigger:scrub('.product-walkthrough','top 90%','top 10%')});
    gsap.fromTo('.walk-heading h2',{xPercent:-4*travel},{xPercent:0,ease:'none',scrollTrigger:scrub('.walk-heading')});
   }
+  const finale=document.querySelector('.contact-finale');
+  if(finale){
+   const contactTitle=document.querySelector<HTMLElement>('.contact-title');
+   const closing=gsap.timeline({scrollTrigger:{trigger:finale,start:'top 88%',once:true},defaults:{ease:'power3.out'}});
+   closing.fromTo('.finale-copy',{opacity:0,y:22},{opacity:1,y:0,duration:.75},0)
+    .fromTo('.finale-slash',{opacity:0,rotation:-18,y:25},{opacity:1,rotation:0,y:0,duration:.9},.1)
+    .fromTo('.finale-line',{scaleX:0},{scaleX:1,duration:1.1},.2);
+   if(contactTitle)closing.fromTo(contactTitle,{opacity:0,y:25},{opacity:1,y:0,duration:.85,clearProps:'opacity,transform',onComplete:()=>contactTitle.classList.add('finale-arrived')},.6);
+  }
   // Editorial titles move inside their own masks; body copy stays available.
-  document.querySelectorAll<HTMLElement>('.opening h2,.work-intro h2,.engagement h2,.process h2,.contact-title').forEach(title=>{
+  document.querySelectorAll<HTMLElement>('.opening h2,.work-intro h2,.engagement h2,.process h2').forEach(title=>{
    gsap.fromTo(title,{clipPath:'inset(0 0 100% 0)',yPercent:12,rotationX:-8},{clipPath:'inset(0 0 0% 0)',yPercent:0,rotationX:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:title,start:'top 94%',once:true},clearProps:'clipPath,transform'});
   });
  });

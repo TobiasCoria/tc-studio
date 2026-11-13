@@ -14,5 +14,6 @@ export const chapters=[
  {id:'colaboracion',es:'Formas de trabajar',en:'Ways to work together',group:'studio'},
  {id:'proceso',es:'Cómo trabajamos',en:'Our process',group:'studio'},
  {id:'ideas',es:'Qué podemos construir',en:'What we could build',group:'studio'},
+ {id:'preguntas',es:'Preguntas frecuentes',en:'Frequently asked questions',group:'studio'},
  {id:'contacto',es:'Contame tu idea',en:'Tell me your idea',group:'studio'},
 ] as const;
