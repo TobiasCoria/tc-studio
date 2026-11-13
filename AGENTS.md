@@ -67,3 +67,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Apertura cinematográfica: shell de carga tipográfico con progreso de recursos real, espera acotada, botón Saltar intro; transición de velo y logo compartido seguida por navegación/textos/capturas escalonadas. No dejar contenido oculto si falla una mejora. Luz adicional en índice, CV, marcos de proyectos y opciones de colaboración; no todos los elementos.
 
 - Marca de carga: pasada plateada/champagne y entrada de profundidad acotadas a 1,05 s; terminar en transform neutro antes de medir el viaje compartido. Respetar movimiento reducido.
+
+- Barra y cierre: marco único flotante con enlaces numerados, acceso a contacto e índice completo; no añadir cápsulas por enlace. Contacto compacto con título menor y datos secundarios agrupados. Mantener campos móviles de 16px, etiquetas visibles y blancos de interacción cómodos.
