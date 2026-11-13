@@ -29,9 +29,9 @@ body[data-page=home]>.intro>.intro-mark{
 }
 body[data-page=home]>.intro>.intro-mark::after{
  content:'TC/STUDIO';position:absolute;inset:0;font:inherit;letter-spacing:inherit;line-height:inherit;text-align:inherit;pointer-events:none;
- background:linear-gradient(108deg,transparent 42%,#e9d8b54d 46%,#fff8e7b3 50%,#e9d8b54d 54%,transparent 58%);
+ background:linear-gradient(108deg,transparent 38%,#d8bd8b88 44%,#fffdf5 49%,#fffdf5 51%,#d8bd8b88 56%,transparent 62%);
  background-size:250% 100%;background-position:100% 50%;background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
- animation:loader-reflection-travel 1.05s linear both;
+ animation:loader-reflection-travel 1.6s .15s linear both;
 }
 @keyframes loader-reflection-travel{from{background-position:100% 50%}to{background-position:0% 50%}}
 @keyframes loader-brand-arrival{from{transform:perspective(1000px) translateY(6px) rotateX(4deg)}to{transform:perspective(1000px) translateY(0) rotateX(0)}}

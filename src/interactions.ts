@@ -68,7 +68,7 @@ export async function playIntro(disabled:()=>boolean,prepare:()=>Promise<void>){
   }));
   try{
     // Bounded asset waiting keeps the site usable on slow or failed requests.
-    await Promise.all([prepared,Promise.race([Promise.all(tracked),new Promise(resolve=>setTimeout(resolve,3500)),skipSignal]),Promise.race([new Promise(resolve=>setTimeout(resolve,1100)),skipSignal])]);
+    await Promise.all([prepared,Promise.race([Promise.all(tracked),new Promise(resolve=>setTimeout(resolve,3500)),skipSignal]),Promise.race([new Promise(resolve=>setTimeout(resolve,1850)),skipSignal])]);
     if(skipped||disabled()){restore();return;}
     await Promise.race([document.fonts.ready,new Promise(resolve=>setTimeout(resolve,800))]);
     await new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve())));

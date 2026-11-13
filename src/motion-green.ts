@@ -18,7 +18,7 @@ export function mountMotion(){
   let id:string;try{id=decodeURIComponent(url.hash.slice(1));}catch{return;}
   const target=document.getElementById(id);if(!target)return;
   event.preventDefault();
-  const top=id==='inicio'||id==='main'?0:target.getBoundingClientRect().top+scrollY-112;
+  const top=id==='inicio'||id==='main'?0:target.getBoundingClientRect().top+scrollY-(id==='contacto'?0:112);
   lenis.scrollTo(Math.max(0,top),{duration:1.35,easing:t=>1-Math.pow(1-t,4)});history.pushState(null,'',url.pathname+url.search+url.hash);
  };
  document.addEventListener('click',anchorClick);

@@ -71,3 +71,5 @@ Tienes autonomía total sobre la arquitectura y las dependencias de este proyect
 - Barra y cierre: marco único flotante con enlaces numerados, acceso a contacto e índice completo; no añadir cápsulas por enlace. Contacto compacto con título menor y datos secundarios agrupados. Mantener campos móviles de 16px, etiquetas visibles y blancos de interacción cómodos.
 
 - Reflejo de carga: base plateada constante y franja separada recortada al texto, una pasada lineal; sin pulsos de opacidad, filtros de halo ni variaciones de brillo del logo completo.
+
+- Contacto de una pantalla en escritorio: finale antes del ancla, padding que compensa la barra y datos secundarios desplegables. Nunca fijar el ancho del span de texto del botón. Reflejo de intro: pasada visible de 1,6s terminada antes de viajar.
