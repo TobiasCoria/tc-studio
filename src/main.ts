@@ -14,6 +14,7 @@ import './contact-route.css';
 import './light-orbit.css';
 import './studio-refinement.css';
 import './navigation-finish.css';
+import './footer-finish.css';
 import {mountLightOrbits} from './light-orbit';
 import {mountContactRoute} from './contact-route';
 import {mountCommercial} from './commercial';
@@ -65,6 +66,7 @@ function translate(next:Language){language=next;document.documentElement.lang=la
   document.querySelector('.gallery-prev')?.setAttribute('aria-label',language==='es'?'Imagen anterior':'Previous image');
   document.querySelector('.gallery-next')?.setAttribute('aria-label',language==='es'?'Imagen siguiente':'Next image');
   document.querySelector('.site-nav>nav')?.setAttribute('aria-label',language==='es'?'Principal':'Main');
+  document.querySelector('.footer-links')?.setAttribute('aria-label',language==='es'?'Enlaces del pie de página':'Footer links');
 
   document.querySelector('.site-nav .wordmark')?.setAttribute('aria-label',language==='es'?'TC Studio inicio':'TC Studio home');
   if(document.body.dataset.page==='home')document.querySelector<HTMLMetaElement>('meta[name="description"]')!.content=language==='es'?'TC/STUDIO. Software a medida, aplicaciones web, Odoo y sistemas empresariales. Desarrollo con dirección, desde Rosario para equipos y negocios.':'TC/STUDIO. Custom software, web applications, Odoo and business systems. Development with direction, from Rosario for teams and businesses.';
